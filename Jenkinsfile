@@ -5,10 +5,19 @@ pipeline {
         maven 'mvn_3-9-7'
     }
 
+
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'main', description: 'the branch of the repository to build')
+    }
+
+    environment {
+        BUILD_NUMBER = "${env.BUILD_NUMBER}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/MW-algo/FreestyleJavaProject'
+                git branch: "${params.BRANCH}", url: 'https://github.com/MW-algo/FreestyleJavaProject'
             }
         }
 
