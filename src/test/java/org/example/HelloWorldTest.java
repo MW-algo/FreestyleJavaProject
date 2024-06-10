@@ -7,6 +7,6 @@ public class HelloWorldTest {
     @Test
     public void testGetMessage() {
         HelloWorld helloWorld = new HelloWorld();
-        assertEquals("Hello, World!", helloWorld.getMessage());
+        assertEquals("Hello, World! wrong", helloWorld.getMessage());
     }
 }
